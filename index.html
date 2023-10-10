@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Learning end-to-end legged robot control policies for interactive tasks">
-  <meta name="keywords" content="legged robot, reinforcement learning, navigation">
+        content="Words into Action: Learning Diverse Humanoid Robot Behaviors using Language Guided Iterative Motion Refinement">
+  <meta name="keywords" content="humanoid robot, LLMs, reinforcement learning,">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cascaded Compositional Residual Learning for Complex Interactive Behaviors</title>
+  <title>Words into Action: Learning Diverse Humanoid Robot Behaviors using Language Guided Iterative Motion Refinement</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -88,7 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Cascaded Compositional Residual Learning for Complex Interactive Behaviors</h1>
+          <h1 class="title is-1 publication-title">Words into Action: Learning Diverse Humanoid Robot Behaviors using Language Guided Iterative Motion Refinement</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://www.kniranjankumar.com">K. Niranjan Kumar</a>,</span>
@@ -126,7 +126,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=8eyG79B0uP8"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -134,7 +134,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies"
@@ -164,14 +164,14 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-widescreen">
     <div class="columns is-centered">
 
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/door_opening_v2.mp4"
+            <source src="./static/videos/motion_clips/walking.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -183,25 +183,54 @@
         <div class="columns is-centered">
           <div class="column content">
             <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/crouching_clip_v2.mp4"
+              <source src="./static/videos/motion_clips/hopping.mp4"
                       type="video/mp4">
             </video>
           </div>
 
         </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/motion_clips/waving.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>      
     </div>
   </div>
-
   <br/>
   <div class="container is-max-desktop">
     <div class="columns is-centered">
 
       <!-- Visual Effects. -->
+
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+
+    </div>
+  </div>
+  <br/>
+  <div class="container is-widescreen">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/motion_clips/celebrate.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/target_reach_clip_v2.mp4"
+            <source src="./static/videos/motion_clips/kicking.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -213,7 +242,7 @@
         <div class="columns is-centered">
           <div class="column content">
             <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/pushing_v2.mp4"
+              <source src="./static/videos/motion_clips/side_step.mp4"
                       type="video/mp4">
             </video>
           </div>
@@ -221,17 +250,8 @@
         </div>
       </div>
     </div>
-    <div class="column">
-        <div class="columns is-centered">
-          <div class="column content">
-            <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-              <source src="./static/videos/interactive_reach.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-        </div>
-    </div>
   </div>
+
 </section>
 
 
@@ -301,18 +321,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present a novel framework, Cascaded Compositional Residual Learning (CCRL),
-            which learns composite skills by recursively leveraging a library of previously learned control policies. 
-            Our framework learns multiplicative policy composition, task-specific residual actions, and synthetic goal 
-            information simultaneously while freezing the prerequisite policies.
-          </p>
-          <p>
-             We further explicitly control the style 
-             of the motion by regularizing residual actions. We show that our framework learns joint-level control policies 
-             for a diverse set of motor skills ranging from basic locomotion to complex interactive navigation, including navigating 
-             around obstacles, pushing objects, crawling under a table, pushing a door open with its leg, and holding it open while 
-             walking through it. The proposed CCRL framework leads to policies with consistent styles and lower joint torques, 
-             which we successfully transfer to a real Unitree A1 robot without any additional fine-tuning. 
+            We present a method to simplify controller design by
+            enabling users to train and fine-tune robot control policies using natural language commands. We first learn a neural network policy that generates behaviors given a natural language command, such as “walk forward”, by combining Large Language Models (LLMs), motion retargeting, and motion imitation.
+            Based on the synthesized motion, we iteratively fine-tune by updating the text
+            prompt and querying LLMs to find the best checkpoint associated with the closest motion in history.
           </p>
         </div>
       </div>
@@ -320,15 +332,7 @@
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/8eyG79B0uP8?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
+
     <!--/ Paper video. -->
   </div>
 
@@ -340,15 +344,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{kumar2023cascaded,
+    <pre><code>@article{kumar2023words,
       author={Kumar, K. Niranjan and Essa, Irfan and Ha, Sehoon},
-      journal={IEEE Robotics and Automation Letters}, 
-      title={Cascaded Compositional Residual Learning for Complex Interactive Behaviors}, 
+      journal={Arxiv}, 
+      title={Words into Action: Learning Diverse Humanoid Robot Behaviors using Language Guided Iterative Motion Refinement}, 
       year={2023},
-      volume={8},
-      number={8},
-      pages={4601-4608},
-      doi={10.1109/LRA.2023.3286171}}
+      <!-- doi={10.1109/LRA.2023.3286171} -->
+    }
 </code></pre>
   </div>
 </section>
